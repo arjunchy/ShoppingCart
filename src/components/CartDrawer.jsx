@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { X, Plus, Minus, ShoppingBag, Trash2 } from "lucide-react";
 import { useCart } from "./context/CartContext";
 import { Button } from "./ui/button";
@@ -18,7 +18,19 @@ export const CartDrawer = () => {
     clearCart 
   } = useCart();
 
+  const [showThankYou, setShowThankYou] = useState(false);
+
   if (!isOpen) return null;
+
+  const handleCheckout = () => {
+    setShowThankYou(true);
+    clearCart();
+  };
+
+  const closeThankYou = () => {
+    setShowThankYou(false);
+    closeCart(); 
+  };
 
   return (
     <>
@@ -110,7 +122,10 @@ export const CartDrawer = () => {
                 </div>
                 <Separator />
                 <div className="space-y-2">
-                  <Button className="w-full bg-accent text-accent-foreground hover:bg-accent/90">
+                  <Button
+                    className="w-full bg-accent text-accent-foreground hover:bg-accent/90"
+                    onClick={handleCheckout}
+                  >
                     Checkout
                   </Button>
                   <Button variant="outline" className="w-full" onClick={clearCart}>
@@ -119,6 +134,18 @@ export const CartDrawer = () => {
                 </div>
               </div>
             </>
+          )}
+
+          {showThankYou && (
+            <div className="fixed inset-0 flex items-center justify-center bg-black/50 z-60">
+              <div className="bg-white p-6 rounded-lg shadow-lg text-center max-w-sm w-full">
+                <h3 className="text-lg font-semibold mb-2">Thank you for shopping!</h3>
+                <p className="text-muted-foreground mb-4">
+                  Your order has been placed successfully.
+                </p>
+                <Button onClick={closeThankYou}>Cancel</Button>
+              </div>
+            </div>
           )}
         </div>
       </div>
