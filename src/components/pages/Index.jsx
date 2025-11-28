@@ -28,13 +28,6 @@ const Index = () => {
 
   return (
     <>
-      <Helmet>
-        <title>ShopHub - Discover Amazing Products</title>
-        <meta
-          name="description"
-          content="Browse our extensive collection of products. Find the best deals on electronics, clothing, home goods, and more at ShopHub."
-        />
-      </Helmet>
 
       <div className="min-h-screen bg-background">
         <Navbar searchQuery={searchQuery} onSearchChange={setSearchQuery} />
@@ -43,10 +36,10 @@ const Index = () => {
           {/* Hero Section */}
           <section className="text-center mb-12">
             <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-foreground via-foreground to-accent bg-clip-text text-transparent">
-              Discover Amazing Products
+              Shop the Best Deals
             </h1>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Explore our curated collection of premium products at unbeatable prices.
+              Discover a wide range of premium products at prices you’ll love
             </p>
           </section>
 
