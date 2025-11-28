@@ -1,5 +1,4 @@
 import { useState, useMemo } from 'react';
-import { Helmet } from 'react-helmet-async';
 import { Navbar } from '../Navbar';
 import { FilterBar } from '../FilterBar';
 import { ProductGrid } from '../ProductGrid';
@@ -11,7 +10,7 @@ import { Loader2 } from 'lucide-react';
 const Index = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
-  const [sortOption, setSortOption] = useState('default'); // Removed <SortOption> type
+  const [sortOption, setSortOption] = useState('default');
 
   const { products, loading, loadingMore, hasMore, loadMore, total } = useProducts(searchQuery, selectedCategory);
   const { categories, loading: categoriesLoading } = useCategories();

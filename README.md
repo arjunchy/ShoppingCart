@@ -48,7 +48,7 @@ A modern, fully-featured product listing web application built with **React** an
 ### Installation
 ```bash
 # Clone the repository
-git clone <your-repo-url>
+git clone https://github.com/arjunchy/ShoppingCart.git
 cd shophub
 
 # Install dependencies
